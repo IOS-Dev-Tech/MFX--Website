@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment methods---MICHEAL FX Dgoat Trading Website</title>
+    <link rel="shortcut icon" href="BUSINESS/IMAGE/mfxx.jpg">
+</head>
+<body>
+
+    <style>
+   
+ html{
+            margin: 0;
+            padding:0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        body{
+            background: #ffdbdb;
+        }
+
+      .blurred{
+            filter: blur(200%);
+      }
+      .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            filter: blur(10px);
+            z-index: 999;
+            display: none;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .donation-box {
+            width: 300%;
+            margin: 0 auto;
+            margin-top: 40px;
+            margin-bottom: 50px;
+            max-width: 1000px;
+            background: linear-gradient(45deg, #1e272e, #0a0a0a);
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            position: relative; 
+            padding: 50px 20px;
+            box-sizing: border-box;
+
+
+            
+        }
+
+        .donation-box h1 {
+            margin-bottom: 20px;
+            font-size: 4em;
+            font-family: serif;
+            padding-bottom: 10px;
+            color: gold;
+        }
+
+        .donation-box p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: white;
+        }
+
+        .donation-button {
+            background: #34495e;
+            color: white;
+            border: none;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+           
+        }
+
+        .donation-button:hover {
+            background: #0011ff; 
+            transform: scale(1.05);
+        }
+        .blurred {
+            filter: blur(100%);
+        }
+    
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 80%;
+            max-width: 500px;
+            background: linear-gradient(45deg, #170385, #00e1ff, #ff310d);
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .popup.show {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            transition: 0.7s ease;
+        }
+        .popup h2{
+            font-family: serif;
+            font-size: 5.2vmin;
+            font-weight: 700;
+            color:white;
+        }
+        .popup p{
+            color: #0d0d0d;
+            font-family: 'Times New Roman', serif;
+            font-weight: 600;
+            margin: 20px 0;
+            font-size: 2.8vmin;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+
+            .donation-box h1 {
+                font-size: 2em;
+                font-family: serif;
+            }
+
+            .donation-box p {
+                font-size: 1em;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+            .donation-button {
+                font-size: 0.9em;
+                padding: 12px 24px;
+            }
+        }
+        @media (max-width: 1200px) {
+            .donation-box, .payment-methods {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .donation-box, .payment-methods {
+                max-width: 750px;
+            }
+
+            .donation-box h1, .payment-methods h1 {
+                font-size: 1.8em;
+            }
+
+            .donation-box p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .donation-box, .payment-methods {
+                max-width: 600px;
+                padding: 15px;
+            }
+
+            .donation-box h1, .payment-methods h1 {
+                font-size: 1.5em;
+            }
+
+            .donation-box p {
+                font-size: 1em;
+            }
+
+            .donation-button, .payment-icon {
+                font-size: 0.9em;
+                padding: 10px 20px;
+            }
+
+            .payment-icon img {
+                max-width: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .donation-box, .payment-methods {
+                max-width: 100%;
+                padding: 10px;
+            }
+
+            .donation-box h1, .payment-methods h1 {
+                font-size: 1.6em;
+            }
+
+            .donation-box p {
+                font-size: 0.9em;
+
+            }
+
+            .donation-button, .payment-icon {
+                font-size: 0.8em;
+                padding: 8px 15px;
+                margin: 5px;
+            }
+
+            .payment-icon img {
+                max-width: 60px;
+            }
+
+            .payment-icon img {
+                max-width: 60px;
+            }
+            .popup p{
+                font-size: 4.6vmin;
+                font-weight: 540;
+            }
+            .popup h2{
+                font-size: 6.7vmin;
+        }
+    }
+
+    .footer {
+            text-align: center;
+            padding: 1px;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            margin-top: 40px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #ff5733;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Your content here -->
+
+    <div class="donation-box">
+         <h1>MFX Payment method</h1>
+         <p>Online payment methods avaliable, on your mobile, PC, or tablets.<br>
+            success is now, WHY GIVE UP??? </p>
+         <div class="button-container">
+             <button class="donation-button" onclick="openPopup()">Crypto Payment</button>
+             <button class="donation-button" onclick="openPopup()">Pay with Mobile Banking</button>
+             <button class="donation-button" onclick="openPopup()">Pay Via Wire Transfer</button>
+         </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        <h2>ACCOUNT INFOMATION</h2>
+        <p> Bank Name: FCMB Bank / O-pay</p>
+        <p>Account Number: 9510703019</p>
+        <p>Account Name: Micheal </p> <br>
+
+        <p> Bank Name:Opay</p>
+        <p>Account Number: 9117950545</p>
+        <p>Account Name: Micheal </p> <br>
+
+        <p>USDT (trc20) Address: THKepBetHdYftTsG4jm3jGf7JgZYU5C7Xb</p>
+       
+       
+    </div>
+    
+
+    <h2 style="text-align: center; margin-top: 40px;">Send Receipt for Confirmation</h2>
+
+<a href="https://wa.me/2347036668278"
+   target="_blank"
+   style="display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin: 20px auto; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background 0.3s ease;">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+   Send via WhatsApp
+</a>
+
+<br><br><br>
+
+       <!-- Footer Section -->
+       <footer class="footer">
+
+        <p class="mb-0">&copy; 2025 MICHEAL  FX Dgoat   </p>
+        <p> <a href="index.html">Back to Main Page</a> </p>
+    </footer>
+
+
+   <script>
+        function openPopup() {
+            document.getElementById("popup").classList.add("show");
+            document.getElementById("overlay").style.display = "block";
+            document.querySelectorAll(".content").forEach(element => {
+                element.classList.add("blurred");
+            });
+        }
+
+        function closePopup() {
+            document.getElementById("popup").classList.remove("show");
+            document.getElementById("overlay").style.display = "none";
+            document.querySelectorAll(".content").forEach(element => {
+                element.classList.remove("blurred");
+            });
+        }
+   </script>
+</body>
+</html>
